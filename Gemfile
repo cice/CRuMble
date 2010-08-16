@@ -5,9 +5,14 @@ gem 'rails', '3.0.0.rc'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+gem 'inherited_resources', '1.1.2'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'haml'
 gem 'haml-rails'
+gem 'rails3-generators'
+gem 'devise'
+gem 'hpricot'
+gem 'ruby_parser'
 gem "transitions", :require => ["transitions", "active_record/transitions"]
 gem 'paperclip'
 
