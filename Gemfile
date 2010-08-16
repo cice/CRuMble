@@ -5,14 +5,27 @@ gem 'rails', '3.0.0.rc'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
+# Replacement for ResourceController
 gem 'inherited_resources', '1.1.2'
+
 gem 'sqlite3-ruby', :require => 'sqlite3'
+
+# Haml for rails 3
 gem 'haml'
 gem 'haml-rails'
-gem 'rails3-generators'
+
+# Authentication, wrapping around Warden
 gem 'devise'
+
+# Generators with haml etc
 gem 'hpricot'
 gem 'ruby_parser'
+gem 'rails3-generators'
+
+# Stylesheet engine
+gem "compass", ">= 0.10.2"
+
+# State machine
 gem "transitions", :require => ["transitions", "active_record/transitions"]
 gem 'paperclip'
 
