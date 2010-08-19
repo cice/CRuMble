@@ -32,6 +32,8 @@ GEM
       activesupport (>= 3.0.0.beta)
     bcrypt-ruby (2.1.2)
     builder (2.1.2)
+    compass (0.10.2)
+      haml (>= 3.0.4)
     devise (1.1.1)
       bcrypt-ruby (~> 2.1.2)
       warden (~> 0.10.7)
@@ -96,6 +98,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  compass (>= 0.10.2)
   devise
   factory_girl
   faker

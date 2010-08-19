@@ -1,0 +1,19 @@
+%p
+  %b First name:
+  = @contact_person.first_name
+%p
+  %b Last name:
+  = @contact_person.last_name
+%p
+  %b Email:
+  = @contact_person.email
+%p
+  %b Phone:
+  = @contact_person.phone
+%p
+  %b Client:
+  = @contact_person.client_id
+
+= link_to 'Edit', edit_contact_person_path(@contact_person)
+\|
+= link_to 'Back', contact_people_path

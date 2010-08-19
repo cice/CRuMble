@@ -1,4 +1,8 @@
 CRuMble::Application.routes.draw do
+  namespace :client do resources :contact_people end
+
+  resources :clients
+
   devise_for :users, :controllers => { :sessions => "sessions" }
 
   resources :users
