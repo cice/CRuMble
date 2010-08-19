@@ -1,0 +1,2 @@
+module ContactPointsHelper
+end

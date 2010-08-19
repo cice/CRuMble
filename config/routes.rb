@@ -1,4 +1,14 @@
 CRuMble::Application.routes.draw do
+  resources :notes
+
+  resources :contact_points
+
+  resources :assignments
+
+  resources :projects
+
+  resources :collaborators
+
   namespace :client do resources :contact_people end
 
   resources :clients

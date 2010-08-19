@@ -1,0 +1,3 @@
+class Developer < Collaborator
+  
+end

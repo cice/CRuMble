@@ -1,0 +1,22 @@
+%p
+  %b First name:
+  = @collaborator.first_name
+%p
+  %b Last name:
+  = @collaborator.last_name
+%p
+  %b Email:
+  = @collaborator.email
+%p
+  %b Phone:
+  = @collaborator.phone
+%p
+  %b Type:
+  = @collaborator.type
+%p
+  %b User:
+  = @collaborator.user_id
+
+= link_to 'Edit', edit_collaborator_path(@collaborator)
+\|
+= link_to 'Back', collaborators_path

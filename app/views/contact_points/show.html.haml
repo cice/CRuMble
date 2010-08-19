@@ -1,0 +1,10 @@
+%p
+  %b Project:
+  = @contact_point.project_id
+%p
+  %b Collaborator:
+  = @contact_point.collaborator_id
+
+= link_to 'Edit', edit_contact_point_path(@contact_point)
+\|
+= link_to 'Back', contact_points_path

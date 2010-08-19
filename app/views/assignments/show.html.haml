@@ -1,0 +1,10 @@
+%p
+  %b Project:
+  = @assignment.project_id
+%p
+  %b Collaborator:
+  = @assignment.collaborator_id
+
+= link_to 'Edit', edit_assignment_path(@assignment)
+\|
+= link_to 'Back', assignments_path

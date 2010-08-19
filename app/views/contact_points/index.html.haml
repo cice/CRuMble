@@ -1,0 +1,21 @@
+%h1 Listing contact_points
+
+%table
+  %tr
+    %th Project
+    %th Collaborator
+    %th
+    %th
+    %th
+
+  - @contact_points.each do |contact_point|
+    %tr
+      %td= contact_point.project_id
+      %td= contact_point.collaborator_id
+      %td= link_to 'Show', contact_point
+      %td= link_to 'Edit', edit_contact_point_path(contact_point)
+      %td= link_to 'Destroy', contact_point, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New contact_point', new_contact_point_path

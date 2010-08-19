@@ -1,8 +1,8 @@
 class CreateClients < ActiveRecord::Migration
   def self.up
     create_table :clients do |t|
-      t.string :name
-      t.string :homepage
+      t.string :name,       :limit => 64
+      t.string :homepage,   :limit => 256
 
       t.timestamps
     end
