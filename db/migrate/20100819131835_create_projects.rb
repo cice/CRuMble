@@ -1,8 +1,8 @@
 class CreateProjects < ActiveRecord::Migration
   def self.up
     create_table :projects do |t|
-      t.string :title
-      t.integer :client_id
+      t.string    :title,     :limit => 64, :default => ""
+      t.integer   :client_id
 
       t.timestamps
     end

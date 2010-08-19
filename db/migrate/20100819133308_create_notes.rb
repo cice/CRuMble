@@ -1,10 +1,11 @@
 class CreateNotes < ActiveRecord::Migration
   def self.up
     create_table :notes do |t|
-      t.integer :noted_id
-      t.string :noted_type
-      t.string :content
-      t.integer :collaborator_id
+      t.integer     :noted_id
+      t.string      :noted_type,      :limit => 32
+      t.text        :content,         :default => "", :null => false
+      t.string      :content_type,    :limit => 32,   :default => "plain"
+      t.integer     :collaborator_id
       t.timestamps
     end
   end

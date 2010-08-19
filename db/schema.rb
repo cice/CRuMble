@@ -10,12 +10,71 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100816132654) do
+ActiveRecord::Schema.define(:version => 20100819133308) do
+
+  create_table "client_contact_people", :force => true do |t|
+    t.string   "first_name", :limit => 32,  :default => ""
+    t.string   "last_name",  :limit => 32,  :default => ""
+    t.string   "email",      :limit => 256, :default => ""
+    t.string   "phone",      :limit => 32,  :default => ""
+    t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "clients", :force => true do |t|
+    t.string   "name",       :limit => 64,  :default => ""
+    t.string   "homepage",   :limit => 256, :default => ""
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "collaborators", :force => true do |t|
+    t.string   "first_name", :limit => 32,  :default => ""
+    t.string   "last_name",  :limit => 32,  :default => ""
+    t.string   "email",      :limit => 256, :default => ""
+    t.string   "phone",      :limit => 32,  :default => ""
+    t.string   "type",       :limit => 32,  :default => "Collaborator"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "contact_points", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "collaborator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "notes", :force => true do |t|
+    t.integer  "noted_id"
+    t.string   "noted_type",      :limit => 32
+    t.text     "content",                       :default => "",      :null => false
+    t.string   "content_type",    :limit => 32, :default => "plain"
+    t.integer  "collaborator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_assignments", :force => true do |t|
+    t.integer  "project_id"
+    t.integer  "collaborator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "projects", :force => true do |t|
+    t.string   "title",      :limit => 64, :default => ""
+    t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", :force => true do |t|
-    t.string   "login_name"
-    t.string   "first_name"
-    t.string   "last_name"
+    t.string   "login_name",          :limit => 32,                  :null => false
+    t.string   "first_name",          :limit => 32,  :default => ""
+    t.string   "last_name",           :limit => 32,  :default => ""
     t.string   "email",                              :default => "", :null => false
     t.string   "encrypted_password",  :limit => 128, :default => "", :null => false
     t.string   "password_salt",                      :default => "", :null => false
