@@ -1,2 +1,3 @@
-class ContactPointsController < InheritedResources::Base
+class ContactPointsController < ApplicationController
+  inherit_resources
 end

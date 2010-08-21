@@ -1,2 +1,3 @@
-class NotesController < InheritedResources::Base
+class NotesController < ApplicationController
+  inherit_resources
 end
