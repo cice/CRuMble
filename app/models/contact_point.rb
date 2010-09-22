@@ -6,4 +6,7 @@ class ContactPoint < ActiveRecord::Base
   belongs_to :contact_person
   
   has_many :notes, :as => :noted
+  
+  validates_presence_of :project
+
 end
