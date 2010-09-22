@@ -1,0 +1,29 @@
+%h1 Listing developers
+
+%table
+  %tr
+    %th First name
+    %th Last name
+    %th Email
+    %th Phone
+    %th Type
+    %th User
+    %th
+    %th
+    %th
+
+  - @developers.each do |developer|
+    %tr
+      %td= developer.first_name
+      %td= developer.last_name
+      %td= developer.emadeveloperil
+      %td= developer.phone
+      %td= developer.type
+      %td= developer.user_id
+      %td= link_to 'Show', developer
+      %td= link_to 'Edit', edit_developer_path(developer)
+      %td= link_to 'Destroy', developer, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New developer', new_developer_path

@@ -8,6 +8,8 @@ CRuMble::Application.routes.draw do
   resources :projects
 
   resources :collaborators
+  
+  resources :developers
 
   namespace :client do resources :contact_people end
 
