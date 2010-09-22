@@ -1,4 +1,4 @@
-class ContactPerson < ActiveRecord::Base
+class ContactPerson < Person
   belongs_to :client
   
   has_many :contact_points

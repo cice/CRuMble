@@ -10,17 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100819133308) do
-
-  create_table "client_contact_people", :force => true do |t|
-    t.string   "first_name", :limit => 32,  :default => ""
-    t.string   "last_name",  :limit => 32,  :default => ""
-    t.string   "email",      :limit => 256, :default => ""
-    t.string   "phone",      :limit => 32,  :default => ""
-    t.integer  "client_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20100917201918) do
 
   create_table "clients", :force => true do |t|
     t.string   "name",       :limit => 64,  :default => ""
@@ -53,6 +43,16 @@ ActiveRecord::Schema.define(:version => 20100819133308) do
     t.text     "content",                       :default => "",      :null => false
     t.string   "content_type",    :limit => 32, :default => "plain"
     t.integer  "collaborator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "first_name", :limit => 32,  :default => ""
+    t.string   "last_name",  :limit => 32,  :default => ""
+    t.string   "email",      :limit => 256, :default => ""
+    t.string   "phone",      :limit => 32,  :default => ""
+    t.integer  "client_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

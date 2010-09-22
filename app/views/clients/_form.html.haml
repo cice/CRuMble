@@ -12,5 +12,10 @@
   .field
     = f.label :homepage
     = f.text_field :homepage
+
+  = f.fields_for :contact_people do |c|
+    = c.label :first_name
+    = c.text_field :first_name
+    
   .actions
     = f.submit 'Save'

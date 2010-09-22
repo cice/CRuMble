@@ -18,6 +18,7 @@ CRuMble::Application.routes.draw do
   resources :users
   resource  :user
 
+  root :to => 'clients#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
