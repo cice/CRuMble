@@ -1,0 +1,28 @@
+%h1 
+  Listing personal relations for 
+  = @person.first_name
+  = @person.last_name
+  
+%table
+  %tr
+    %th
+    %th with
+    %th type
+    %th
+    
+  - @personal_relations.each do |relation|
+    %tr
+      %td 
+        with      
+      %td 
+        = relation.related_person.first_name
+        = relation.related_person.last_name
+      %td
+        = relation.relation_type.name
+      %td 
+        = link_to 'Change', [@person.becomes(Person), relation]
+        
+        
+= link_to 'NEW', new_person_personal_relation_path(@person)
+
+

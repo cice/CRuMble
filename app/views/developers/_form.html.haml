@@ -2,13 +2,13 @@
   
   -if @developer.errors.any?
     #errorExplanation
-    %h2 
-      = "#{pluralize(@developer.errors.count,'error')} prevented this developer from being saved"
+      %h2 
+        = "#{pluralize(@developer.errors.count,'error')} prevented this developer from being saved"
     
-    %ul
-      - @developer.errors.full_messages.each do |msg|
-        %li
-          = msg
+      %ul
+        - @developer.errors.full_messages.each do |msg|
+          %li
+            = msg
       
   .field
     = f.label :first_name

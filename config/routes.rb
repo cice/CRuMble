@@ -15,6 +15,13 @@ CRuMble::Application.routes.draw do
 
   resources :clients
 
+  resources :relation_types
+  
+  resources :people do
+    
+    resources :personal_relations
+  end
+
   devise_for :users, :controllers => { :sessions => "sessions" }
 
   resources :users
