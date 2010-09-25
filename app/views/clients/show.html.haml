@@ -5,6 +5,24 @@
   %b Homepage:
   = @client.homepage
 
+- if @client.projects.any?
+    
+  %h1
+    Listing projects: 
+  %ul
+    - @client.projects.each do |project|
+      %li
+        = link_to project.title, project
+- else
+  %h1
+    This client has no projects yet
+
+%p
+  = link_to 'Add project', new_project_path(:project => {:client_id => @client})
+
+
 = link_to 'Edit', edit_client_path(@client)
+\|
+= link_to 'Destroy', @sclient, :confirm => 'Are you sure?', :method => :delete
 \|
 = link_to 'Back', clients_path

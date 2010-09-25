@@ -5,6 +5,8 @@ class Person < ActiveRecord::Base
   has_many :personal_relations
   has_many :related_people, :through => :personal_relations
   
+  has_many :notes, :as => :noted
+  
   def first_and_last_name
     "#{first_name} #{last_name}"
   end

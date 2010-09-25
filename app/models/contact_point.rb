@@ -7,6 +7,5 @@ class ContactPoint < ActiveRecord::Base
   
   has_many :notes, :as => :noted
   
-  validates_presence_of :project
 
 end
