@@ -5,6 +5,19 @@
   %b Homepage:
   = @client.homepage
 
+%table
+  %th
+  
+  - @client.contact_points.each do |cp|
+    -if cp.project.nil?
+      %tr
+        %td
+          = cp.contact_date_time
+      %tr
+        %td
+          = cp.minutes
+
+
 - if @client.projects.any?
     
   %h1
@@ -13,6 +26,16 @@
     - @client.projects.each do |project|
       %li
         = link_to project.title, project
+        %table
+          %th Contact points
+          - project.contact_points.each do |cp|
+            %tr
+              %td
+                = cp.contact_date_time
+            %tr
+              %td
+                = cp.minutes
+          
 - else
   %h1
     This client has no projects yet

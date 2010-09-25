@@ -1,3 +1,5 @@
+- first_contact = @client.contact_people.build if @client.new_record?
+- first_contact.contact_points.build if first_contact
 = form_for @client do |f|
   -if @client.errors.any?
     #errorExplanation
@@ -13,9 +15,22 @@
     = f.label :homepage
     = f.text_field :homepage
 
+  %h1
+    First contact/correspondence:
+    
   = f.fields_for :contact_people do |c|
+    .field
     = c.label :first_name
     = c.text_field :first_name
+    = c.label :last_name
+    = c.text_field :last_name
     
+    .field
+    = c.fields_for :contact_points do |p|
+      .field
+      = p.datetime_select :contact_date_time
+      .field
+      = p.text_area :minutes
+      
   .actions
     = f.submit 'Save'

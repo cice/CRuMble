@@ -9,4 +9,20 @@
 \|
 = link_to 'Destroy', @project, :confirm => 'Are you sure?', :method => :delete
 \|
-= link_to 'Back', projects_path
+= link_to 'All projects', projects_path
+
+- if @project.contact_points.any?
+  %table
+    %th
+      %h1
+        Contact points
+    - @project.contact_points.each do |cp|
+      %tr
+        %td
+          = cp.contact_date_time
+      %tr
+        %td
+          = simple_format cp.minutes
+          
+%p
+  = link_to 'Add contact point/correspondence', new_contact_point_path(:contact_point => {:project_id => @project})
