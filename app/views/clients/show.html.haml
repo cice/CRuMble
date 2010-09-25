@@ -41,6 +41,8 @@
     This client has no projects yet
 
 %p
+  = link_to 'Add contact person', new_client_contact_person_path(@client)
+
   = link_to 'Add project', new_project_path(:project => {:client_id => @client})
 
 

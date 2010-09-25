@@ -14,6 +14,10 @@
     = f.collection_select :collaborator_id, Collaborator.all, :id, :first_and_last_name, :prompt =>true
     
   .field
+    = f.label :contact_person_id
+    = f.collection_select :contact_person_id, ContactPerson.all.sort_by{|a| a.client_name_and_contact_person_first_and_last_name.downcase}, :id, :client_name_and_contact_person_first_and_last_name, :prompt =>true
+    
+  .field
     = f.label :contact_date_time
     = f.datetime_select :contact_date_time
     

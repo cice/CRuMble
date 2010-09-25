@@ -11,9 +11,9 @@ CRuMble::Application.routes.draw do
   
   resources :developers
 
-  namespace :client do resources :contact_people end
-
-  resources :clients
+  resources :clients do
+    resources :contact_people
+  end
 
   resources :relation_types
   

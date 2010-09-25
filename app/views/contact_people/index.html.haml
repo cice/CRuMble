@@ -6,7 +6,6 @@
     %th Last name
     %th Email
     %th Phone
-    %th Client
     %th
     %th
     %th
@@ -17,11 +16,10 @@
       %td= contact_person.last_name
       %td= contact_person.email
       %td= contact_person.phone
-      %td= contact_person.client_id
-      %td= link_to 'Show', contact_person
-      %td= link_to 'Edit', edit_contact_person_path(contact_person)
-      %td= link_to 'Destroy', contact_person, :confirm => 'Are you sure?', :method => :delete
+      %td= link_to 'Show', [@client, contact_person]
+      %td= link_to 'Edit', edit_client_contact_person_path(@client,contact_person)
+      %td= link_to 'Destroy', [@client, contact_person], :confirm => 'Are you sure?', :method => :delete
 
 %br
 
-= link_to 'New contact_person', new_contact_person_path
+= link_to 'New contact_person', new_client_contact_person_path

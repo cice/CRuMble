@@ -2,19 +2,29 @@
 
 %table
   %tr
-    %th Project
-    %th Collaborator
-    %th
-    %th
-    %th
+    %th 
 
   - @contact_points.each do |contact_point|
     %tr
-      %td= contact_point.project_id
-      %td= contact_point.collaborator_id
-      %td= link_to 'Show', contact_point
-      %td= link_to 'Edit', edit_contact_point_path(contact_point)
-      %td= link_to 'Destroy', contact_point, :confirm => 'Are you sure?', :method => :delete
+      %td
+        
+        - if t = contact_point.project.try(:title)
+          = "Title: #{t}"
+    %tr
+      %td
+        - if t= contact_point.collaborator.try(:first_and_last_name)
+          = "Collaborator: #{t}"
+    %tr
+      %td
+        = contact_point.contact_date_time
+    %tr
+      %td
+        = simple_format contact_point.try(:minutes)
+    %tr
+      %td
+        = link_to 'Show', contact_point
+        = link_to 'Edit', edit_contact_point_path(contact_point)
+        = link_to 'Destroy', contact_point, :confirm => 'Are you sure?', :method => :delete
 
 %br
 

@@ -1,9 +1,21 @@
 %p
   %b Project:
-  = @contact_point.project_id
+  = @contact_point.project.try(:title)
 %p
   %b Collaborator:
-  = @contact_point.collaborator_id
+  = @contact_point.collaborator.try(:first_and_last_name)
+  
+%p
+  %b Contact Person:
+  = @contact_point.contact_person.try(:first_and_last_name)
+  
+%p
+  %b Date
+  = @contact_point.contact_date_time
+  
+%p
+  %b Minutes
+  = simple_format @contact_point.try(:minutes)
 
 = link_to 'Edit', edit_contact_point_path(@contact_point)
 \|
