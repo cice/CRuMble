@@ -573,3 +573,34 @@ body {
   background-color: #dddddd;
   min-height: 600px;
 }
+
+/* line 29, ../../app/stylesheets/screen.sass */
+#modal_opacity {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* line 38, ../../app/stylesheets/screen.sass */
+.hidden {
+  display: none;
+}
+
+/* line 41, ../../app/stylesheets/screen.sass */
+#noteForm {
+  position: absolute;
+  margin: 0 auto;
+  top: -400px;
+  background-color: #999999;
+  height: 400px;
+  overflow: hidden;
+  border: 20px solid #999999;
+  border-bottom: 5px solid #999999;
+}
+/* line 53, ../../app/stylesheets/screen.sass */
+#noteForm textarea {
+  height: 370px;
+}

@@ -1,0 +1,23 @@
+#noteForm
+  = form_for(Note.new(:noted => noted), :remote => true) do |f|
+    = f.hidden_field :noted_id
+    = f.hidden_field :noted_type
+    = f.hidden_field :content_type, :value => "plain"
+    
+    .field
+      = f.text_area :content
+    .button
+      = f.submit 'Save'
+      = link_to 'Cancel', '#', :id => 'cancel_note'
+:javascript
+  jQuery("form.new_note").bind('ajax:success', function(data, status, xhr){
+    $("#noteForm").stop().animate({'top' : '-400px'}, 200, function () {$("#noteForm").hide()});
+    $("#modal_opacity").fadeOut(200);
+    this.reset();
+    return false;
+  });
+  jQuery('#cancel_note').click(function () {
+    $("#noteForm").stop().animate({'top' : '-400px'}, 200, function () {$("#noteForm").hide()});
+    $("#modal_opacity").fadeOut(200);
+    return false;
+  });
