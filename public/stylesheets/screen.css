@@ -584,14 +584,19 @@ body {
   background-color: rgba(0, 0, 0, 0.5);
 }
 
-/* line 38, ../../app/stylesheets/screen.sass */
+/* line 37, ../../app/stylesheets/screen.sass */
+body {
+  position: relative;
+}
+
+/* line 41, ../../app/stylesheets/screen.sass */
 .hidden {
   display: none;
 }
 
-/* line 41, ../../app/stylesheets/screen.sass */
+/* line 44, ../../app/stylesheets/screen.sass */
 #noteForm {
-  position: absolute;
+  position: fixed;
   margin: 0 auto;
   top: -400px;
   background-color: #999999;
@@ -600,7 +605,7 @@ body {
   border: 20px solid #999999;
   border-bottom: 5px solid #999999;
 }
-/* line 53, ../../app/stylesheets/screen.sass */
+/* line 56, ../../app/stylesheets/screen.sass */
 #noteForm textarea {
   height: 370px;
 }

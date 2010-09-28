@@ -52,12 +52,8 @@ GEM
     inherited_resources (1.1.2)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
-<<<<<<< HEAD
-    mail (2.2.6.1)
-=======
     linecache (0.43)
     mail (2.2.5)
->>>>>>> 58c1ba93c3e1323df20d4f493df8e45294d6e233
       activesupport (>= 2.3.6)
       mime-types
       treetop (>= 1.4.5)
