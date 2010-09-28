@@ -1,6 +1,7 @@
 %p
   %b Title:
   = @project.title
+  = note_link(@project, :client_name_slash_project_name)
 %p
   %b Client:
   = @project.client.try :name
@@ -26,3 +27,5 @@
           
 %p
   = link_to 'Add contact point/correspondence', new_contact_point_path(:contact_point => {:project_id => @project})
+  
+= note_form

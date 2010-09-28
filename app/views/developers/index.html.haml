@@ -11,19 +11,23 @@
     %th
     %th
     %th
+    %th
 
   - @developers.each do |developer|
     %tr
       %td= developer.first_name
       %td= developer.last_name
-      %td= developer.emadeveloperil
+      %td= developer.email
       %td= developer.phone
       %td= developer.type
       %td= developer.user_id
       %td= link_to 'Show', developer
       %td= link_to 'Edit', edit_developer_path(developer)
       %td= link_to 'Destroy', developer, :confirm => 'Are you sure?', :method => :delete
+      %td
+        = note_link(developer, :first_and_last_name)
 
 %br
 
 = link_to 'New developer', new_developer_path
+= note_form

@@ -1,3 +1,2 @@
 class Developer < Collaborator
-  
 end

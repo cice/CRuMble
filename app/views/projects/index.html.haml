@@ -14,8 +14,11 @@
         = link_to project.title, project
       %td
         = link_to_unless project.client.nil?, project.client.try(:name), project.client
+      %td
+        = note_link(project, :client_name_slash_project_name)
 
 
 %br
 
 = link_to 'New project', new_project_path
+= note_form

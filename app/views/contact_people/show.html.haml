@@ -17,3 +17,8 @@
 = link_to 'Edit', edit_client_contact_person_path(@contact_person)
 \|
 = link_to "All contact people of #{@client.name}", client_contact_people_path
+
+= note_link(@contact_person, :first_and_last_name)
+
+= note_form
+

@@ -5,6 +5,25 @@
   %b Homepage:
   = @client.homepage
 
+%br
+
+- if @client.contact_people.any?
+  Contact people
+  %table
+    %th Name
+    %th Email 
+    %th phone
+    
+    - @client.contact_people.each do |cp|
+      %tr
+        %td
+          = cp.first_and_last_name
+        %td
+          = cp.email
+        %td
+          = cp.phone
+%br
+
 %table
   %th
   
@@ -41,13 +60,15 @@
     This client has no projects yet
 
 %p
+
+  = link_to 'All contact people', client_contact_people_path(@client)
   = link_to 'Add contact person', new_client_contact_person_path(@client)
 
   = link_to 'Add project', new_project_path(:project => {:client_id => @client})
 
 = link_to 'Edit', edit_client_path(@client)
 \|
-= link_to 'Destroy', @sclient, :confirm => 'Are you sure?', :method => :delete
+= link_to 'Destroy', @client, :confirm => 'Are you sure?', :method => :delete
 \|
 = link_to 'All Clients', clients_path
 \|

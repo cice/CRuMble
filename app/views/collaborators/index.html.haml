@@ -11,6 +11,7 @@
     %th
     %th
     %th
+    %th
 
   - @collaborators.each do |collaborator|
     %tr
@@ -23,7 +24,11 @@
       %td= link_to 'Show', collaborator
       %td= link_to 'Edit', edit_collaborator_path(collaborator)
       %td= link_to 'Destroy', collaborator, :confirm => 'Are you sure?', :method => :delete
+      %td
+        = note_link(collaborator, :first_and_last_name)
 
 %br
 
 = link_to 'New collaborator', new_collaborator_path
+
+= note_form

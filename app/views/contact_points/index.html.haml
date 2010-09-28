@@ -25,7 +25,10 @@
         = link_to 'Show', contact_point
         = link_to 'Edit', edit_contact_point_path(contact_point)
         = link_to 'Destroy', contact_point, :confirm => 'Are you sure?', :method => :delete
+        = note_link(contact_point, :contact_date_time)
 
 %br
 
 = link_to 'New contact_point', new_contact_point_path
+
+= note_form

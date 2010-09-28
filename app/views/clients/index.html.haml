@@ -6,6 +6,7 @@
     %th Homepage
     %th
     %th
+    %th
 
   - @clients.each do |client|
     %tr
@@ -13,7 +14,11 @@
       %td= link_to client.homepage, client.homepage
       %td= link_to 'Edit', edit_client_path(client)
       %td= link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete
+      %td
+        = note_link(client, :name)
 
 %br
 
 = link_to 'New client', new_client_path
+
+= note_form();

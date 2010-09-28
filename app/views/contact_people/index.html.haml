@@ -9,6 +9,7 @@
     %th
     %th
     %th
+    %th
 
   - @contact_people.each do |contact_person|
     %tr
@@ -19,7 +20,11 @@
       %td= link_to 'Show', [@client, contact_person]
       %td= link_to 'Edit', edit_client_contact_person_path(@client,contact_person)
       %td= link_to 'Destroy', [@client, contact_person], :confirm => 'Are you sure?', :method => :delete
+      %td
+        = note_link(contact_person, :first_and_last_name)
 
 %br
 
 = link_to 'New contact_person', new_client_contact_person_path
+
+= note_form
