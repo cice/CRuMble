@@ -8,16 +8,26 @@ CRuMble::Application.routes.draw do
   resources :projects
 
   resources :collaborators
+  
+  resources :developers
 
-  namespace :client do resources :contact_people end
+  resources :clients do
+    resources :contact_people
+  end
 
-  resources :clients
+  resources :relation_types
+  
+  resources :people do
+    
+    resources :personal_relations
+  end
 
   devise_for :users, :controllers => { :sessions => "sessions" }
 
   resources :users
   resource  :user
 
+  root :to => 'clients#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

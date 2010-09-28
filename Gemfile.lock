@@ -32,6 +32,7 @@ GEM
       activesupport (~> 3.0.0)
     bcrypt-ruby (2.1.2)
     builder (2.1.2)
+    columnize (0.3.1)
     compass (0.10.2)
       haml (>= 3.0.4)
     devise (1.1.1)
@@ -51,7 +52,12 @@ GEM
     inherited_resources (1.1.2)
       has_scope (~> 0.5.0)
       responders (~> 0.6.0)
+<<<<<<< HEAD
     mail (2.2.6.1)
+=======
+    linecache (0.43)
+    mail (2.2.5)
+>>>>>>> 58c1ba93c3e1323df20d4f493df8e45294d6e233
       activesupport (>= 2.3.6)
       mime-types
       treetop (>= 1.4.5)
@@ -81,6 +87,11 @@ GEM
       thor (~> 0.14.0)
     rake (0.8.7)
     responders (0.6.2)
+    ruby-debug (0.10.3)
+      columnize (>= 0.1)
+      ruby-debug-base (~> 0.10.3.0)
+    ruby-debug-base (0.10.3)
+      linecache (>= 0.3)
     ruby_parser (2.0.4)
       sexp_processor (~> 3.0)
     sexp_processor (3.0.4)
@@ -109,6 +120,7 @@ DEPENDENCIES
   paperclip
   rails (= 3.0.0)
   rails3-generators
+  ruby-debug
   ruby_parser
   shoulda
   sqlite3-ruby

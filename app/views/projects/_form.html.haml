@@ -11,6 +11,6 @@
     = f.text_field :title
   .field
     = f.label :client_id
-    = f.text_field :client_id
+    = f.collection_select :client_id, Client.all, :id, :name, :prompt => true
   .actions
     = f.submit 'Save'

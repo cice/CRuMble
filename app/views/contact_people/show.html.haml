@@ -14,6 +14,6 @@
   %b Client:
   = @contact_person.client_id
 
-= link_to 'Edit', edit_contact_person_path(@contact_person)
+= link_to 'Edit', edit_client_contact_person_path(@contact_person)
 \|
-= link_to 'Back', contact_people_path
+= link_to "All contact people of #{@client.name}", client_contact_people_path

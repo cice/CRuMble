@@ -10,32 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100819133308) do
-
-  create_table "client_contact_people", :force => true do |t|
-    t.string   "first_name", :limit => 32,  :default => ""
-    t.string   "last_name",  :limit => 32,  :default => ""
-    t.string   "email",      :limit => 256, :default => ""
-    t.string   "phone",      :limit => 32,  :default => ""
-    t.integer  "client_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20100925184128) do
 
   create_table "clients", :force => true do |t|
     t.string   "name",       :limit => 64,  :default => ""
     t.string   "homepage",   :limit => 256, :default => ""
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "collaborators", :force => true do |t|
-    t.string   "first_name", :limit => 32,  :default => ""
-    t.string   "last_name",  :limit => 32,  :default => ""
-    t.string   "email",      :limit => 256, :default => ""
-    t.string   "phone",      :limit => 32,  :default => ""
-    t.string   "type",       :limit => 32,  :default => "Collaborator"
-    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -45,6 +24,9 @@ ActiveRecord::Schema.define(:version => 20100819133308) do
     t.integer  "collaborator_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "minutes"
+    t.datetime "contact_date_time"
+    t.integer  "contact_person_id"
   end
 
   create_table "notes", :force => true do |t|
@@ -53,6 +35,26 @@ ActiveRecord::Schema.define(:version => 20100819133308) do
     t.text     "content",                       :default => "",      :null => false
     t.string   "content_type",    :limit => 32, :default => "plain"
     t.integer  "collaborator_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "people", :force => true do |t|
+    t.string   "first_name", :limit => 32,  :default => ""
+    t.string   "last_name",  :limit => 32,  :default => ""
+    t.string   "email",      :limit => 256, :default => ""
+    t.string   "phone",      :limit => 32,  :default => ""
+    t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.string   "type"
+  end
+
+  create_table "personal_relations", :force => true do |t|
+    t.integer  "person_id"
+    t.integer  "related_person_id"
+    t.integer  "relation_type_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -67,6 +69,12 @@ ActiveRecord::Schema.define(:version => 20100819133308) do
   create_table "projects", :force => true do |t|
     t.string   "title",      :limit => 64, :default => ""
     t.integer  "client_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "relation_types", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

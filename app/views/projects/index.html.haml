@@ -10,11 +10,11 @@
 
   - @projects.each do |project|
     %tr
-      %td= project.title
-      %td= project.client_id
-      %td= link_to 'Show', project
-      %td= link_to 'Edit', edit_project_path(project)
-      %td= link_to 'Destroy', project, :confirm => 'Are you sure?', :method => :delete
+      %td
+        = link_to project.title, project
+      %td
+        = link_to_unless project.client.nil?, project.client.try(:name), project.client
+
 
 %br
 

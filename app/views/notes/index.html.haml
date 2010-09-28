@@ -5,6 +5,7 @@
     %th Noted
     %th Noted type
     %th Content
+    %th Content type
     %th
     %th
     %th
@@ -14,6 +15,8 @@
       %td= note.noted_id
       %td= note.noted_type
       %td= note.content
+      %td
+        = note.content_type
       %td= link_to 'Show', note
       %td= link_to 'Edit', edit_note_path(note)
       %td= link_to 'Destroy', note, :confirm => 'Are you sure?', :method => :delete

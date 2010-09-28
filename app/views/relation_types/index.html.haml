@@ -1,0 +1,17 @@
+%h1 Listing relation_types
+
+%table
+  %tr
+    %th name
+    %th
+    %th
+
+  - @relation_types.each do |relation_type|
+    %tr
+      %td
+        = link_to relation_type.name, relation_type
+
+
+%br
+
+= link_to 'New relation_type', new_relation_type_path

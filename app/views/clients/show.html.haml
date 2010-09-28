@@ -5,6 +5,67 @@
   %b Homepage:
   = @client.homepage
 
+%table
+  %th
+  
+  - @client.contact_points.each do |cp|
+    -if cp.project.nil?
+      %tr
+        %td
+          = cp.contact_date_time
+      %tr
+        %td
+          = cp.minutes
+
+
+- if @client.projects.any?
+    
+  %h1
+    Listing projects: 
+  %ul
+    - @client.projects.each do |project|
+      %li
+        = link_to project.title, project
+        %table
+          %th Contact points
+          - project.contact_points.each do |cp|
+            %tr
+              %td
+                = cp.contact_date_time
+            %tr
+              %td
+                = cp.minutes
+          
+- else
+  %h1
+    This client has no projects yet
+
+%p
+  = link_to 'Add contact person', new_client_contact_person_path(@client)
+
+  = link_to 'Add project', new_project_path(:project => {:client_id => @client})
+
 = link_to 'Edit', edit_client_path(@client)
 \|
-= link_to 'Back', clients_path
+= link_to 'Destroy', @sclient, :confirm => 'Are you sure?', :method => :delete
+\|
+= link_to 'All Clients', clients_path
+\|
+= link_to 'Note', new_note_path({:noted_id => @client.id, :noted_type => "Client"}), :id => "note_link"
+:javascript
+  jQuery("#note_link").click(function () {
+    $('#modal_opacity').hide()
+                        .removeClass('.hidden')
+                        .fadeIn(500);
+    $('#noteForm').show().animate({'top' : 0},300);
+    
+    return false;
+  
+  });
+  jQuery(function() {
+  
+    jQuery("#noteForm").hide();
+  
+  });
+
+= render :partial => 'shared/note_form', :locals => {:noted => @client}

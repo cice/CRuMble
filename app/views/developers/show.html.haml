@@ -1,0 +1,15 @@
+%p
+  %b First name:
+  = @developer.first_name
+%p
+  %b Last name:
+  = @developer.last_name
+%p
+  %b Email:
+  = @developer.email
+%p
+  %b Phone:
+  = @developer.phone
+= link_to 'Edit', edit_developer_path(@developer)
+\|
+= link_to 'Back', developers_path

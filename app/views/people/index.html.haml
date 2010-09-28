@@ -1,0 +1,18 @@
+%h1 Listing people
+
+%table
+  %tr
+    %th Last Name
+    %th First Name
+    %th
+    
+  - @people.each do |person|
+    %tr
+      %th 
+        = person.last_name
+      %th 
+        = person.first_name
+      %th 
+        = link_to 'Relations', person.personal_relations
+        
+    

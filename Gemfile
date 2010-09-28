@@ -28,7 +28,7 @@ gem "compass", ">= 0.10.2"
 # State machine
 gem "transitions", :require => ["transitions", "active_record/transitions"]
 gem 'paperclip'
-
+gem 'ruby-debug'
 group :test do
   gem 'factory_girl'
   gem 'shoulda'
