@@ -45,15 +45,16 @@
     - @client.projects.each do |project|
       %li
         = link_to project.title, project
-        %table
-          %th Contact points
-          - project.contact_points.each do |cp|
-            %tr
-              %td
-                = cp.contact_date_time
-            %tr
-              %td
-                = cp.minutes
+        - if project.contact_points.any?
+          %table
+            %th Contact points
+            - project.contact_points.each do |cp|
+              %tr
+                %td
+                  = cp.contact_date_time
+              %tr
+                %td
+                  = cp.minutes
           
 - else
   %h1

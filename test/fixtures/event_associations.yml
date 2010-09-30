@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  event_id: 1
+  associated_element_id: 1
+  associated_element_type: MyString
+
+two:
+  event_id: 1
+  associated_element_id: 1
+  associated_element_type: MyString
