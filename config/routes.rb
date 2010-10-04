@@ -14,6 +14,10 @@ CRuMble::Application.routes.draw do
   resources :clients do
     resources :contact_people
   end
+  
+  resources :event_messages
+  
+  resources :events
 
   resources :relation_types
   

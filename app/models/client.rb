@@ -9,4 +9,10 @@ class Client < ActiveRecord::Base
   accepts_nested_attributes_for :contact_people
   
   has_many :notes, :as => :noted
+  
+  
+  def to_name
+    name
+  end
+  
 end

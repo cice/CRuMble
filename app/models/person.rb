@@ -12,4 +12,8 @@ class Person < ActiveRecord::Base
   end
   
   
+  def to_name
+    first_and_last_name
+  end
+  
 end

@@ -1,0 +1,26 @@
+%h1 Listing Event messages
+
+%table
+  %tr
+    %th Message Handle
+    %th Message
+    %th
+    %th
+    %th
+
+  - @event_messages.each do |evtm|
+    %tr
+      %td
+        = evtm.handle
+      %td
+        = evtm.content
+      %td
+        = link_to 'Show', evtm
+      %td
+        = link_to 'Edit', edit_event_message_path(evtm)
+      %td
+        = link_to 'Destroy', evtm, :confirm => 'Are you sure?', :method => :delete
+
+%br
+
+= link_to 'New Event Message', new_event_message_path

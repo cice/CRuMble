@@ -1,7 +1,7 @@
 
 module ActiveRecord::BaseAddon  
   def to_name
-    id
+    to_s
   end
   
   def to_type

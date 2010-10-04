@@ -1,0 +1,8 @@
+
+- if @events.any?
+  
+  - @events.each do |e|
+    %p
+      %h1
+        = Event.render_message e.get_associations, e.message_handle
+        
