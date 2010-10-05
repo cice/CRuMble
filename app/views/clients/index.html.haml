@@ -1,21 +1,22 @@
 %h1 Listing clients
 
 %table
-  %tr
-    %th Name
-    %th Homepage
-    %th
-    %th
-    %th
-
-  - @clients.each do |client|
+  %thead
     %tr
-      %td= link_to client.name, client
-      %td= link_to client.homepage, client.homepage
-      %td= link_to 'Edit', edit_client_path(client)
-      %td= link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete
-      %td
-        = note_link(client, :name)
+      %th Name
+      %th Homepage
+      %th
+      %th
+      %th
+  %tbody
+    - @clients.each do |client|
+      %tr
+        %td= link_to client.name, client
+        %td= link_to client.homepage, client.homepage
+        %td= link_to 'Edit', edit_client_path(client)
+        %td= link_to 'Destroy', client, :confirm => 'Are you sure?', :method => :delete
+        %td
+          = note_link(client, :name)
 
 %br
 
