@@ -17,3 +17,7 @@ class Person < ActiveRecord::Base
   end
   
 end
+
+require 'collaborator'
+require 'developer'
+require 'contact_person'
