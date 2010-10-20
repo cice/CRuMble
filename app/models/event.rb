@@ -17,7 +17,7 @@ class Event < ActiveRecord::Base
       
       EventAssociation.new.tap do |e|
         e.associated_element = element
-        e.place_holder = place_holder
+        e.place_holder = place_holder.to_s
         
         e.event = evt
         

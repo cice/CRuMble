@@ -3,6 +3,9 @@
   
   - @events.each do |e|
     %p
-      %h1
+      %h4
+        = l e.created_at, :format => :short
+        \:
+      %h2
         = Event.render_message e.get_associations, e.message_handle
         

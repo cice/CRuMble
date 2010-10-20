@@ -8,4 +8,13 @@ class CollaboratorsController < ApplicationController
   #     klass.all
   #   }
   # end
+  
+  def create
+    create!
+    Event.throw({"Creator" => current_user.collaborator, "Created" => @collaborator},"CollaboratorCreated")
+    
+    
+  end
+  
+  
 end

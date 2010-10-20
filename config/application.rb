@@ -41,5 +41,8 @@ module CRuMble
 
     # Configure sensitive parameters which will be filtered from the log file.
     config.filter_parameters += [:password]
+    
+    #Observer
+    #config.active_record.observers= :person_observer
   end
 end

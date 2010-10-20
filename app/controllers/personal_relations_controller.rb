@@ -8,4 +8,7 @@ class PersonalRelationsController < ApplicationController
       success.html { redirect_to :action => :index }
     end
   end
+  
+  
+
 end
