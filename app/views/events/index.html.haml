@@ -1,11 +1,12 @@
 
 - if @events.any?
-  
-  - @events.each do |e|
-    %p
-      %h4
-        = l e.created_at, :format => :short
-        \:
-      %h2
-        = Event.render_message e.get_associations, e.message_handle
+  #eventsContainer
+    %ul
+      - @events.each do |e|
+        %li
+          %h4.datime
+            = l e.created_at, :format => :short
+            \:
+          %h4.evtMsg
+            = make_event_message Event.render_message_list(e.get_associations, e.message_handle)
         

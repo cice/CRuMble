@@ -78,5 +78,31 @@ class Event < ActiveRecord::Base
   end
   
   
+  def self.render_message_list( associated_elements, message_handle)
+
+     
+    raw_msg = EventMessage.where({:handle => message_handle}).first
+     
+    raw_msg = KuduParser::ContentSnippet.extract raw_msg.content
+     
+    raw_msg.map do |m|
+      if m.is_a?(KuduParser::ContentSnippet)
+        name=m.name.to_s
+        prop=m.state.to_s
+        
+        associated_element=associated_elements[name]
+        
+        {:associated_element => associated_element, :property => prop}
+      else
+        m
+      end
+        
+      
+      
+    end
+  end
+  
+  
+  
   
 end
