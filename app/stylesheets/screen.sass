@@ -10,10 +10,15 @@
 // Combine the partials into a single screen stylesheet.
 @import partials/page
 @import partials/form
-@import partials/two_col
+// @import partials/two_col
 
-body
-  background-color: #333
+$bgcolor: #333
+$fgcolor: #eee
+
+$menucolor: #228
+
+body.bp
+  background-color: $bgcolor
 
 
 #modal_opacity
@@ -58,3 +63,67 @@ body
     color: #44e
     font-family: Chalkduster, Arial
     font-size: 14pt
+
+
+$leftcolumnwidth: 3
+$rightcolumnwidth: 5
+$midcolumnwidth: 16
+// $blueprint-grid-columns - ($leftcolumnwidth + $rightcolumnwidth )
+
+#container
+  #header
+    // +column(24, last)
+    // #leftheader
+    //   +column($leftcolumnwidth)
+    //   background-color: $bgcolor
+    // #midheader
+    //   +column($midcolumnwidth)
+    //   background-color: $menucolor
+    // #rightheader
+    //   +column($rightcolumnwidth, last)
+    //   background-color: $bgcolor
+  #leftpart
+    +column($leftcolumnwidth)
+    background-color: $bgcolor
+  #content
+    background-color: $fgcolor
+    +column($midcolumnwidth + $rightcolumnwidth, last)
+    #leftcontent
+      +column($midcolumnwidth)
+    #rightcontent
+      +column($rightcolumnwidth,last)
+      background-color: $fgcolor
+  #footer
+    +column($blueprint-grid-columns)
+    
+li
+  list-style-type: none
+  
+  
+#menu
+  // background-color: red
+  li
+    display: inline
+  text-align: left
+
+  
+// stick notes
+$stickynotecolor: #ee9
+// $stickynotecolor: #9e9
+$stickynotewidth: ($rightcolumnwidth - 1) * ($blueprint-grid-margin + $blueprint-grid-width)
+$stickynoteheight: $stickynotewidth
+
+
+.stickyNote
+  background-color: $stickynotecolor
+  width: $stickynotewidth
+  height: $stickynoteheight
+  margin: 10px
+  overflow: hidden
+
+.stickyNotesBoard
+  li
+    list-style-type: none
+
+
+

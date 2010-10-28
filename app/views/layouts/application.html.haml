@@ -7,12 +7,25 @@
     = javascript_include_tag :defaults
     = javascript_include_tag "rails"
     = csrf_meta_tag
-  %body.bp.two-col
+  %body.bp
     #modal_opacity.hidden
-    #header
       
     #container
-      #sidebar
-      #content
-        = yield
+      #header
+        #leftheader
+          &nbsp;
+        #midheader
+          = render :partial => 'shared/menu'
+        #rightheader
+          &nbsp;
+      #midpart
+        #leftpart
+          &nbsp;
+          %h4 
+            blablabl
+          %h4
+            sfkjahsdf
+        #content
+          = yield
+      #footer
 

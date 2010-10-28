@@ -1,0 +1,5 @@
+.stickyNotesBoard
+  %ul
+    - @noted.notes.sort_by(&:created_at).reverse.each do |n|
+      %li
+        = render_cell :stickyNote, :display, :note => n

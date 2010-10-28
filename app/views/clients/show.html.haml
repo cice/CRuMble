@@ -1,93 +1,98 @@
-%p
-  %b Name:
-  = @client.name
-%p
-  %b Homepage:
-  = @client.homepage
+#leftcontent
+  %p
+    %b Name:
+    = @client.name
+  %p
+    %b Homepage:
+    = @client.homepage
 
-%br
+  %br
 
-- if @client.contact_people.any?
-  Contact people
+  - if @client.contact_people.any?
+    Contact people
+    %table
+      %th Name
+      %th Email 
+      %th phone
+    
+      - @client.contact_people.each do |cp|
+        %tr
+          %td
+            = cp.first_and_last_name
+          %td
+            = cp.email
+          %td
+            = cp.phone
+  %br
+
   %table
-    %th Name
-    %th Email 
-    %th phone
-    
-    - @client.contact_people.each do |cp|
-      %tr
-        %td
-          = cp.first_and_last_name
-        %td
-          = cp.email
-        %td
-          = cp.phone
-%br
-
-%table
-  %th
+    %th
   
-  - @client.contact_points.each do |cp|
-    -if cp.project.nil?
-      %tr
-        %td
-          = cp.contact_date_time
-      %tr
-        %td
-          = cp.minutes
+    - @client.contact_points.each do |cp|
+      -if cp.project.nil?
+        %tr
+          %td
+            = cp.contact_date_time
+        %tr
+          %td
+            = cp.minutes
 
 
-- if @client.projects.any?
+  - if @client.projects.any?
     
-  %h1
-    Listing projects: 
-  %ul
-    - @client.projects.each do |project|
-      %li
-        = link_to project.title, project
-        - if project.contact_points.any?
-          %table
-            %th Contact points
-            - project.contact_points.each do |cp|
-              %tr
-                %td
-                  = cp.contact_date_time
-              %tr
-                %td
-                  = cp.minutes
+    %h1
+      Listing projects: 
+    %ul
+      - @client.projects.each do |project|
+        %li
+          = link_to project.title, project
+          - if project.contact_points.any?
+            %table
+              %th Contact points
+              - project.contact_points.each do |cp|
+                %tr
+                  %td
+                    = cp.contact_date_time
+                %tr
+                  %td
+                    = cp.minutes
           
-- else
-  %h1
-    This client has no projects yet
+  - else
+    %h1
+      This client has no projects yet
 
-%p
+  %p
 
-  = link_to 'All contact people', client_contact_people_path(@client)
-  = link_to 'Add contact person', new_client_contact_person_path(@client)
+    = link_to 'All contact people', client_contact_people_path(@client)
+    = link_to 'Add contact person', new_client_contact_person_path(@client)
 
-  = link_to 'Add project', new_project_path(:project => {:client_id => @client})
+    = link_to 'Add project', new_project_path(:project => {:client_id => @client})
 
-= link_to 'Edit', edit_client_path(@client)
-\|
-= link_to 'Destroy', @client, :confirm => 'Are you sure?', :method => :delete
-\|
-= link_to 'All Clients', clients_path
-\|
-= link_to 'Note', new_note_path({:noted_id => @client.id, :noted_type => "Client"}), :id => "note_link"
-:javascript
-  jQuery("#note_link").click(function () {
-    $('#modal_opacity').hide()
-                        .removeClass('.hidden')
-                        .fadeIn(500);
-    $('#noteForm').show().animate({'top' : 0},300);
+  = link_to 'Edit', edit_client_path(@client)
+  \|
+  = link_to 'Destroy', @client, :confirm => 'Are you sure?', :method => :delete
+  \|
+  = link_to 'All Clients', clients_path
+  \|
+  = link_to 'Note', new_note_path({:noted_id => @client.id, :noted_type => "Client"}), :id => "note_link"
+  :javascript
+    jQuery("#note_link").click(function () {
+      $('#modal_opacity').hide()
+                          .removeClass('.hidden')
+                          .fadeIn(500);
+      $('#noteForm').show().animate({'top' : 0},300);
     
-    return false;
+      return false;
   
-  });
-  jQuery(function() {
+    });
+    jQuery(function() {
   
-    jQuery("#noteForm").hide();
+      jQuery("#noteForm").hide();
   
-  });
+    });
+
+#rightcontent
+  = render_cell :sticky_note_board, :display, :noted => @client
+
 
 = note_form(@client)

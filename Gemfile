@@ -35,6 +35,9 @@ group :test do
   gem 'faker'
 end
 
+
+gem 'cells', "3.4.0.beta3"
+
 # Use unicorn as the web server
 # gem 'unicorn'
 

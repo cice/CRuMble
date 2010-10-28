@@ -1,0 +1,5 @@
+.stickyNote{:id => "note-#{@note.id}"}
+  %h6
+    = link_to (@note.collaborator.try(:first_and_last_name) || "NAME" , @note.collaborator) unless @note.collaborator.nil?
+     
+  = simple_format @note.content
