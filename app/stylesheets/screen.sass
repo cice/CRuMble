@@ -68,20 +68,23 @@ body
 $leftcolumnwidth: 3
 $rightcolumnwidth: 5
 $midcolumnwidth: 16
-// $blueprint-grid-columns - ($leftcolumnwidth + $rightcolumnwidth )
+
 
 #container
+  width: $blueprint_container_size
+  +clearfix
   #header
-    // +column(24, last)
-    // #leftheader
-    //   +column($leftcolumnwidth)
-    //   background-color: $bgcolor
-    // #midheader
-    //   +column($midcolumnwidth)
-    //   background-color: $menucolor
-    // #rightheader
-    //   +column($rightcolumnwidth, last)
-    //   background-color: $bgcolor
+    
+    +column(24, last)
+    #leftheader
+      +column($leftcolumnwidth)
+      background-color: $bgcolor
+    #midheader
+      +column($midcolumnwidth)
+      background-color: $menucolor
+    #rightheader
+      +column($rightcolumnwidth, last)
+      background-color: $bgcolor
   #leftpart
     +column($leftcolumnwidth)
     background-color: $bgcolor
@@ -90,9 +93,11 @@ $midcolumnwidth: 16
     +column($midcolumnwidth + $rightcolumnwidth, last)
     #leftcontent
       +column($midcolumnwidth)
+      background-color: $fgcolor
     #rightcontent
       +column($rightcolumnwidth,last)
-      background-color: $fgcolor
+      background-color: $bgcolor
+        
   #footer
     +column($blueprint-grid-columns)
     
@@ -101,7 +106,7 @@ li
   
   
 #menu
-  // background-color: red
+  background-color: red
   li
     display: inline
   text-align: left
@@ -121,9 +126,11 @@ $stickynoteheight: $stickynotewidth
   margin: 10px
   overflow: hidden
 
-.stickyNotesBoard
+#stickyNotesBoard
   li
     list-style-type: none
+  ul
+    padding-left: 0px
 
 
 

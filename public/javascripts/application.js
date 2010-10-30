@@ -10,7 +10,7 @@ $(function(){
 			var typ = e.attr('data-noted_type');
 			var id = e.attr('data-noted_id');
 			var nam =e.attr('data-noted_name');
-			//alert('type: '+typ+'\nid= '+id);
+			alert('type: '+typ+'\nid= '+id);
 			
 			$('#noteForm #note_noted_id').attr('value',id);
 			$('#noteForm #note_noted_type').attr('value',typ);

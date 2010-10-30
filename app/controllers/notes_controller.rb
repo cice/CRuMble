@@ -1,4 +1,5 @@
 class NotesController < ApplicationController
+  respond_to :html, :json
   inherit_resources
   
   def create
@@ -9,8 +10,12 @@ class NotesController < ApplicationController
     @note = Note.new(params[:note])
     @note.collaborator=current_user.collaborator
     
+    
     if @note.save
-      redirect_to @note
+      
+      note_attribs = @note.attributes.except(:noted_id, :collaborator_id, :collaborator_type).merge({:noted => @note.noted, :collaborator => @note.collaborator, :collaborator_link => collaborator_path(@note.collaborator)})
+
+      render :json => note_attribs
       Event.throw ({"NoteTaker" => current_user.collaborator, "Noted" => @note.noted},"NoteTaken")
     else
       render :action => 'new'
@@ -22,6 +27,7 @@ class NotesController < ApplicationController
     
   end
   
+
   
   
 end

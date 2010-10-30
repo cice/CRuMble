@@ -1,0 +1,10 @@
+%script{:id=>"noteJsonTempl", :type=>"text/x-jquery-tmpl"}
+  .stickyNote{:id => "note-${id}"}
+    %h6
+      = link_to "${collaborator_link}" do
+        = "${collaborator.first_name} ${collaborator.last_name}"
+
+    
+     
+
+    = "${content}"

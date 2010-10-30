@@ -13,6 +13,10 @@ CRuMble::Application.routes.draw do
 
   resources :clients do
     resources :contact_people
+    member do
+      get 'notes'
+    end
+    
   end
   
   resources :event_messages

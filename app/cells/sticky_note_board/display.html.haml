@@ -1,4 +1,5 @@
-.stickyNotesBoard
+#stickyNotesBoard
+  =render :partial => 'note_json_template'
   %ul
     - @noted.notes.sort_by(&:created_at).reverse.each do |n|
       %li

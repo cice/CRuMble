@@ -1,5 +1,5 @@
 #noteForm
-  = form_for(Note.new(:noted => noted), :remote => true) do |f|
+  = form_for(Note.new(:noted => noted), :url => notes_path(:format => :json), :remote => true) do |f|
     = f.hidden_field :noted_id
     = f.hidden_field :noted_type
     = f.hidden_field :content_type, :value => "plain"
@@ -13,7 +13,19 @@
       = link_to 'Cancel', '#', :id => 'cancel_note'
 :javascript
   jQuery("form.new_note").bind('ajax:success', function(data, status, xhr){
-    $("#noteForm").stop().animate({'top' : '-400px'}, 200, function () {$("#noteForm").hide()});
+  
+    $("#noteForm").stop().animate({'top' : '-400px'}, 200, function () {
+    
+      $("#noteForm").hide();
+    
+      // $("#stickyNotesBoard").html("schipps");
+    
+      // alert(status);
+    
+       //$("#noteJsonTempl").tmpl(status).prependTo("#stickyNotesBoard");
+      
+    });
+    
     $("#modal_opacity").fadeOut(200);
     this.reset();
     return false;
