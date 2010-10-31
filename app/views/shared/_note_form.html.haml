@@ -1,5 +1,5 @@
 #noteForm
-  = form_for(Note.new(:noted => noted), :url => notes_path(:format => :json), :remote => true) do |f|
+  = form_for(Note.new(:noted => noted), :url => notes_path(:format => :json), :remote => true, :html => {:'data-type' => 'json'}) do |f|
     = f.hidden_field :noted_id
     = f.hidden_field :noted_type
     = f.hidden_field :content_type, :value => "plain"
